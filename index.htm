@@ -24,40 +24,17 @@
     var googurl = 'http://www.google.com/reader/link?url=';
     var ghrf = '">google</a>';
     
- /*
-    function initialize() {
-      var feed = new google.feeds.Feed("http://feeds.pandora.com/feeds/people/"+username+"/stations.xml");
-      feed.load(function(result) {
-        if (!result.error) {
-          var container = document.getElementById("feed");
-          for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-            var div = document.createElement("div");
-            div.appendChild(document.createTextNode(entry.title));
-	    var span1 = document.createElement("span");
-	    span1.innerHTML = ahrf + fbsurl + entry.link + '&t=' + topic + bhrf;
-	    div.appendChild(span1);
-	    var span2 = document.createElement("span");
-	    span2.innerHTML = ahrf + googurl + entry.link + '&title=' + topic + entry.title  + ghrf;
-            div.appendChild(span2);
-            container.appendChild(div);
-          }
-        }
-      });
-    }
-    google.setOnLoadCallback(initialize);
-*/
+
 	function getname(){
 		var nm = document.getElementById("nm");
-		alert(nm.value);
 		return nm.value;
 	}
 
-function init(name) {
+     function init(name) {
       
 
-      var feed = new google.feeds.Feed("http://feeds.pandora.com/feeds/people/"+escape(name)+"/stations.xml");
-      feed.load(function(result) {
+        var feed = new google.feeds.Feed("http://feeds.pandora.com/feeds/people/"+escape(name)+"/stations.xml");
+        feed.load(function(result) {
         if (!result.error) {
           var container = document.getElementById("feed");
           for (var i = 0; i < result.feed.entries.length; i++) {
