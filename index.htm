@@ -24,7 +24,7 @@
     var googurl = 'http://www.google.com/reader/link?url=';
     var ghrf = '">google!</a>';
     
- 
+ /*
     function initialize() {
       var feed = new google.feeds.Feed("http://feeds.pandora.com/feeds/people/"+username+"/stations.xml");
       feed.load(function(result) {
@@ -46,24 +46,57 @@
       });
     }
     google.setOnLoadCallback(initialize);
+*/
+    function getname(){
+	return document.getElementById("nm").value;
+    }
+
+    function init(name) {
+      var feed = new google.feeds.Feed("http://feeds.pandora.com/feeds/people/"+name+"/stations.xml");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("feed");
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            div.appendChild(document.createTextNode(entry.title));
+	    var span1 = document.createElement("span");
+	    span1.innerHTML = ahrf + fbsurl + entry.link + '&t=' + topic + bhrf;
+	    div.appendChild(span1);
+	    var span2 = document.createElement("span");
+	    span2.innerHTML = ahrf + googurl + entry.link + '&title=' + topic + entry.title  + ghrf;
+            div.appendChild(span2);
+            container.appendChild(div);
+          }
+        }
+      });
+    }
  
     </script> 
   </head> 
   <body> 
+	<div id="content" style="margin-left: 100px;">
 
 	<h2>Pandora radio script</h2>
 
-			     <br/>
-			     <br/>
+			     <br>
+			     <br>
 
-	Share your Pandora radio staions from your website using this script<br/>
-									    <br/>	
-        Demo<br/>
-	I'm currently listening to ...<br/>
-    <div id="feed"></div> 
+	Share your Pandora radio stations from your website using this script<br>
+									    <br>	
+        Demo<br>
+	<input id="nm" value="Enter your Pandora username here" type="text"><br>
+	<input value="ok" onclick="init(getname());" type="button"><br><br>
 
-	<br/>
-        <a href='http://github.com/budu3/pandora_script/blob/master/pandora_script.js'>Download pandora script</a>
-	requires - <a href='http://www.google.com/jsapi'>http://www.google.com/jsapi</a>
+	<div style="border: 2px solid blue; padding: 5px; width: 350px;">
+	I'm currently listening to ...<br>
+   	 <div id="feed"></div> 
+	</div>
+
+	<br>
+        <a href="http://github.com/budu3/pandora_script/blob/master/pandora_script.js">Download pandora script</a><br>
+	requires - <a href="http://www.google.com/jsapi">http://www.google.com/jsapi</a>
+	</div>
   </body> 
 </html> 
+
