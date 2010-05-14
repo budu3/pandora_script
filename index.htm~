@@ -56,13 +56,14 @@
     </script> 
   </head> 
   <body> 
+	<div id="content" style="margin-left:100px;">
 
 	<h2>Pandora radio script</h2>
 
 			     <br/>
 			     <br/>
 
-	Share your Pandora radio staions from your website using this script<br/>
+	Share your Pandora radio stations from your website using this script<br/>
 									    <br/>	
         Demo<br/>
 	<input id = "nm" type="text" value="Enter your Pandora username here"></text><br/>
@@ -76,7 +77,7 @@
 	<br/>
         <a href='http://github.com/budu3/pandora_script/blob/master/pandora_script.js'>Download pandora script</a><br/>
 	requires - <a href='http://www.google.com/jsapi'>http://www.google.com/jsapi</a>
-
+	</div>
 
   </body> 
 </html> 
